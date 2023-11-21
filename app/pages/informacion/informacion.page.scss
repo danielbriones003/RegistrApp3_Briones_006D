@@ -1,0 +1,21 @@
+ion-card-header {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+.texto{
+    color:red;
+    text-align: justify;
+}
+
+.contenido{
+    background-color: navy;
+    text-align: justify;
+    padding:5%;
+
+}
+
+.titulo{
+    font-weight: bold;
+   
+}

@@ -1,0 +1,141 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header style="background-color:darkcyan">
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  
+      <form [formGroup]="registerForm">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nombre: </ion-label>
+            <ion-input type="text" placeholder="cachupin.." formControlName="nombreCompleto"></ion-input>
+          </ion-item>
+  
+          <div *ngIf="registerForm.get('nombreCompleto')?.invalid && (registerForm.get('nombreCompleto')?.dirty || 
+                registerForm.get('nombreCompleto')?.touched)">
+            <div style="color:red;" *ngIf="registerForm.get('nombreCompleto')?.hasError('required')">
+              *Ingrese su nombre
+            </div>
+          </div>
+  
+          <ion-item>
+            <ion-label position="floating">Contraseña: </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+  
+          <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || 
+                registerForm.get('password')?.touched)">
+              <div style="color:red;" *ngIf="registerForm.get('password')?.hasError('required')">
+                *Ingrese su contraseña
+              </div>
+              <div style="color:red;" *ngIf="registerForm.get('password')?.hasError('minlength')">
+                *Contraseña debe tener 8 caracteres mínimo 
+             </div>
+          </div>
+  
+        <ion-item>
+          <ion-label position="floating">Email: </ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+  
+          <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || 
+                registerForm.get('email')?.touched)">
+              <div style="color:red;" *ngIf="registerForm.get('email')?.hasError('required')">
+                *Ingrese un email
+              </div>
+          </div>
+  
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" formControlName="username"></ion-input>
+        </ion-item>
+      
+          <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || 
+                registerForm.get('password')?.touched)">
+              <div style="color:red;" *ngIf="registerForm.get('username')?.hasError('required')">
+                *Ingresa Username (debe tener 4 caracteres mínimo)  
+              </div>
+          </div>
+  
+        <ion-item>
+          <ion-label position="floating">Sede: </ion-label>
+          <ion-input type="translucent"  name="sede" formControlName="sede"></ion-input>
+        </ion-item>
+  
+          <div *ngIf="registerForm.get('sede')?.invalid && (registerForm.get('sede')?.dirty || 
+                registerForm.get('sede')?.touched)">
+            <div style="color:red;" *ngIf="registerForm.get('sede')?.hasError('required')">
+              *Ingresa la sede 
+            </div>
+          </div>
+        </ion-list>
+        
+  
+        <ion-item>
+          <ion-label position="floating">Rol: </ion-label>
+          <ion-select formControlName="rol">
+            <ion-select-option value="docente">docente</ion-select-option>
+            <ion-select-option value="alumno">alumno</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Selecciona asignatura" [multiple]="true" formControlName="asignatura">
+              <ion-select-option value="Programacion de aplicaciones moviles">Programacion de aplicaciones moviles</ion-select-option>
+              <ion-select-option value="Base de datos">Base de datos</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+  
+        <br>
+        <ion-item>
+          <ion-label>Selecciona año</ion-label>
+            <ion-select name="horas1" formControlName="ano" interface="popover" value="horas" multiple="true" placeholder="Selecciona años">
+              <ion-select-option value="2hrs">2023</ion-select-option>
+              <ion-select-option value="3hrs">2024</ion-select-option>
+              <ion-select-option value="4hrs">2025</ion-select-option>
+              <ion-select-option value="6hrs">2026</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <br>
+  
+        <ion-item>
+          <ion-label>Horas Semanales Asignatura</ion-label>
+          <ion-item>
+            <ion-label>Selecciona la cantidad de horas</ion-label>
+            <ion-select name="horas2" formControlName="horas_sem" interface="popover" value="horas" multiple="true" placeholder="Selecciona cantidad de horas">
+              <ion-select-option value="2hrs">2 Horas</ion-select-option>
+              <ion-select-option value="3hrs">3 Horas</ion-select-option>
+              <ion-select-option value="4hrs">4 Horas</ion-select-option>
+              <ion-select-option value="5hrs">5 Horas</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-item>
+  
+        <ion-button (click)="registrar()" expand="block" shape="round">
+          Registrar Usuario
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

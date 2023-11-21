@@ -1,0 +1,47 @@
+{
+  "asignaturas": [
+    {
+      "id": 1,
+      "nombre": "Programacion de aplicaciones moviles"
+    },
+    {
+      "id": 2,
+      "nombre": "Base de datos"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "email": "dani.briones@duocuc.cl",
+      "password": "danibrionesduoc",
+      "role": "usuario",
+      "isactive": true
+    },
+    {
+      "nombreCompleto": "dani",
+      "password": "danibrioness",
+      "email": "dani@gmail.com",
+      "sede": "maipou",
+      "asignatura": [
+        "Programacion de aplicaciones moviles"
+      ],
+      "ano": [
+        "2hrs"
+      ],
+      "horas_sem": [
+        "3hrs"
+      ],
+      "role": "docente",
+      "isactive": true,
+      "id": 2
+    }
+  ],
+  "registros": [
+    {
+      "id": "",
+      "nombre": "",
+      "password": "",
+      "email": ""
+    }
+  ]
+}
